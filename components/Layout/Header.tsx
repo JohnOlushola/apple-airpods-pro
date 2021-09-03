@@ -1,9 +1,9 @@
 import Head from "next/head";
-import React from "react";
-import { Link } from "types/link";
+import Link from "next/link";
+import { Link as HeaderLink } from "types/link";
 
 export default function Header() {
-  const links: Link[] = [
+  const links: HeaderLink[] = [
     {
       title: "Home",
       url: "/",
@@ -58,8 +58,8 @@ export default function Header() {
       </Head>
       <div className="container">
         <ul className="h-11 flex justify-between items-center">
-          {links.map((link) => (
-            <li className="list-none">
+          {links.map((link, index) => (
+            <li className="list-none" key={index}>
               <a
                 className="text-sm font-light text-gray-300"
                 href={link.url}
@@ -75,18 +75,19 @@ export default function Header() {
         <div className="py-2.5 flex justify-between items-center border-b border-gray-600">
           <a className="text-xl font-normal leading-relaxed">AirPods Pro</a>
           <div className="inline-flex items-center">
-            <a href="/" className="text-xs text-gray-300 font-light mr-5">
-              Overview
-            </a>
-            <a href="/" className="text-xs text-gray-300 font-light mr-5">
-              Tech Specs
-            </a>
-            <a
-              href="/"
-              className="text-xs text-gray-300 font-light bg-blue-600 px-3 py-1 rounded-xl"
-            >
-              Buy
-            </a>
+            <Link href="/">
+              <a className="text-xs text-gray-300 font-light mr-5">Overview</a>
+            </Link>
+            <Link href="/">
+              <a className="text-xs text-gray-300 font-light mr-5">
+                Tech Specs
+              </a>
+            </Link>
+            <Link href="/">
+              <a className="text-xs text-gray-300 font-light bg-blue-600 px-3 py-1 rounded-xl">
+                Buy
+              </a>
+            </Link>
           </div>
         </div>
       </div>
