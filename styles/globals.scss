@@ -28,3 +28,80 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+
+canvas.bg-active {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 100vh;
+  max-height: 100vh;
+  animation: fadeInAnimation ease-out 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+// Background Canvas
+
+.block {
+  height: 100vh;
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  z-index: 100;
+  transition: opacity 0.25s ease;
+}
+
+.block-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.block-text {
+  font-size: 64px;
+  text-align: center;
+  font-size: 64px;
+  line-height: 1.0625;
+  font-weight: 700;
+  letter-spacing: -0.0045em;
+  color: #ffffff;
+  /* columns: #000000;; */
+}
+
+.fix-block {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  opacity: 1;
+}
+
+.fix-block .block-content {
+  opacity: 1;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.fade-in {
+  animation: fadeInAnimation ease-out 3.5s;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
