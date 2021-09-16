@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import Link from "next/link"
 
 const FRAME_COUNT = 136;
 const BASE_URL_B1 =
@@ -57,8 +58,15 @@ export default function Home() {
 
   return (
     <>
-      <div className="landing min-h-screen bg-black">
-        <canvas ref={canvasRef} className="bg-active"></canvas>
+      <div className="landing min-h-screen bg-black text-white">
+        <canvas ref={canvasRef} className="bg-active z-0"></canvas>
+        <div className="h-screen flex flex-col items-center align-middle justify-center hero">
+          <h1 className="text-white font-bold tracking-tight hero__headline-text leading-none">AirPods Pro</h1>
+          <div className="inline-flex mt-3 text-white">
+            <Link href="/#" passHref={true}><a className="text-2xl font-semibold mr-4 hover:underline">Watch the product film</a></Link>
+            <Link href="/#" passHref={true}><a className="text-2xl font-semibold hover:underline">Watch <em>Jump</em></a></Link>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Link as HeaderLink } from "types/link";
+import { Link as HeaderLink } from "../../types/link";
 
 export default function Header() {
   const links: HeaderLink[] = [
@@ -47,7 +47,7 @@ export default function Header() {
   ];
 
   return (
-    <div className="bg-black w-full text-white">
+    <div className="bg-black w-full text-white fixed">
       <Head>
         <title>AirPods Pro - Apple</title>
         <meta
@@ -73,7 +73,7 @@ export default function Header() {
       </div>
       <div className="container">
         <div className="py-2.5 flex justify-between items-center border-b border-gray-600">
-          <a className="text-xl font-normal leading-relaxed">AirPods Pro</a>
+          <a className="text-xl font-normal text-gray-100 leading-relaxed">AirPods Pro</a>
           <div className="inline-flex items-center">
             <Link href="/">
               <a className="text-xs text-gray-300 font-light mr-5">Overview</a>
