@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Link from "next/link"
+import Link from "next/link";
 
 const FRAME_COUNT = 136;
 const BASE_URL_B1 =
@@ -12,15 +12,19 @@ export default function Home() {
     const currentFrame = (index: number) =>
       BASE_URL_B1 + index.toString().padStart(4, "0") + ".jpg";
 
+    // Set image
     const img = new Image();
     img.src = currentFrame(1);
 
+    // Set canvas
     const canvas: HTMLCanvasElement = canvasRef.current;
     const context: CanvasRenderingContext2D = canvas.getContext("2d");
 
+    // Canvas size
     canvas.width = 1158;
     canvas.height = 770;
 
+    // Preload images
     const preloadImages = () => {
       for (let i = 1; i < FRAME_COUNT; i++) {
         const img = new Image();
@@ -28,11 +32,13 @@ export default function Home() {
       }
     };
 
+    // Update image
     const updateImage = (index: number) => {
       img.src = currentFrame(index);
       context.drawImage(img, 0, 0);
     };
 
+    // Handle scroll event and update image
     window.addEventListener("scroll", () => {
       let scrollTop = document.scrollingElement.scrollTop;
 
@@ -49,6 +55,7 @@ export default function Home() {
       requestAnimationFrame(() => updateImage(frameIndex + 1));
     });
 
+    // Draw image
     img.onload = () => {
       context.drawImage(img, 0, 0);
     };
@@ -58,13 +65,23 @@ export default function Home() {
 
   return (
     <>
-      <div className="landing min-h-screen bg-black text-white">
+      <div className="landing min-h-screen">
         <canvas ref={canvasRef} className="bg-active z-0"></canvas>
         <div className="h-screen flex flex-col items-center align-middle justify-center hero">
-          <h1 className="text-white font-bold tracking-tight hero__headline-text leading-none">AirPods Pro</h1>
-          <div className="inline-flex mt-3 text-white">
-            <Link href="/#" passHref={true}><a className="text-2xl font-semibold mr-4 hover:underline">Watch the product film</a></Link>
-            <Link href="/#" passHref={true}><a className="text-2xl font-semibold hover:underline">Watch <em>Jump</em></a></Link>
+          <h1 className="font-bold tracking-tight hero__headline-text leading-none">
+            AirPods Pro
+          </h1>
+          <div className="inline-flex mt-3">
+            <Link href="/#" passHref={true}>
+              <a className="text-2xl font-semibold mr-4 hover:underline">
+                Watch the product film
+              </a>
+            </Link>
+            <Link href="/#" passHref={true}>
+              <a className="text-2xl font-semibold hover:underline">
+                Watch <em>Jump</em>
+              </a>
+            </Link>
           </div>
         </div>
       </div>
