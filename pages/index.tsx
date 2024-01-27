@@ -105,8 +105,8 @@ export default function Home() {
     <>
       <div className="landing min-h-screen">
         <canvas ref={canvasRef} className="bg-active z-0"></canvas>
-        <div className="h-screen flex flex-col items-center align-middle justify-center hero">
-          <h1 className="font-bold tracking-tight md:text-9xl lg:text-[200px] leading-none">
+        <div className="h-screen flex flex-col items-center align-middle justify-center hero overscroll-contain">
+          <h1 className="font-bold tracking-tight hero-text leading-none">
             AirPods Pro
           </h1>
           <div className="inline-flex mt-3 gap-2">

@@ -5,12 +5,12 @@ import Header from "./Header";
 export default function Layout({ children }) {
   return (
     <>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Header />
         <main>{children}</main>
         <Footer />
       </div>
-      <div className="md:hidden flex flex-col items-center justify-center align-middle h-screen">
+      <div className="lg:hidden flex flex-col items-center justify-center align-middle h-screen">
         <p>Please view on a desktop</p>
       </div>
     </>
