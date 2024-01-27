@@ -50,13 +50,13 @@ canvas.bg-active {
 
   &__headline-text {
     font-size: 200px;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+      "Arial", sans-serif !important;
   }
 }
 
 // Background Canvas
-
-.block {
+.fixed-block {
   height: 100vh;
   width: 980px;
   margin-left: auto;
@@ -66,7 +66,7 @@ canvas.bg-active {
   transition: opacity 0.25s ease;
 }
 
-.block-content {
+.fixed-block-content {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -74,7 +74,7 @@ canvas.bg-active {
   overflow-y: hidden;
 }
 
-.block-text {
+.fixed-block-text {
   font-size: 64px;
   text-align: center;
   font-size: 64px;
@@ -92,7 +92,7 @@ canvas.bg-active {
   opacity: 1;
 }
 
-.fix-block .block-content {
+.fix-block .fixed-block-content {
   opacity: 1;
 }
 

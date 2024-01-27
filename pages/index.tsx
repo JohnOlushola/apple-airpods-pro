@@ -60,12 +60,50 @@ export default function Home() {
       context.drawImage(img, 0, 0);
     };
 
+    // blocks
+    const handleScrollForBlock = (blockId) => {
+      const block = document.getElementById(blockId);
+
+      if (!block) {
+        console.error(`Element with id ${blockId} not found.`);
+        return;
+      }
+
+      const blockPosition = block.getBoundingClientRect();
+
+      const handleScroll = () => {
+        const currentScroll = document.scrollingElement.scrollTop;
+
+        if (
+          currentScroll >= blockPosition.top &&
+          currentScroll <= blockPosition.bottom
+        ) {
+          block.classList.add("fix-block");
+        } else {
+          block.classList.remove("fix-block");
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      // Cleanup the event listener when the component unmounts
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    };
+
+    // Apply the scroll behavior for each block
+    handleScrollForBlock("block-1");
+    handleScrollForBlock("block-2");
+    handleScrollForBlock("block-3");
+    handleScrollForBlock("block-4");
+
     preloadImages();
   }, []);
 
   return (
     <>
-      <div className="landing min-h-screen">
+      <div className="sm:hidden md:block landing min-h-screen">
         <canvas ref={canvasRef} className="bg-active z-0"></canvas>
         <div className="h-screen flex flex-col items-center align-middle justify-center hero">
           <h1 className="font-bold tracking-tight hero__headline-text leading-none">
@@ -82,6 +120,37 @@ export default function Home() {
                 Watch <em>Jump</em>
               </a>
             </Link>
+          </div>
+        </div>
+
+        {/* Blocks */}
+        <div className="fixed-block" id="block-1">
+          <div className="fixed-block-content" id="block-content">
+            <p className="fixed-block-text">
+              Active Noise Cancellation for immersive sound.
+            </p>
+          </div>
+        </div>
+
+        <div className="fixed-block" id="block-2">
+          <div className="fixed-block-content" id="block-content">
+            <p className="fixed-block-text">
+              Transparency mode for hearing what’s happening around you.
+            </p>
+          </div>
+        </div>
+
+        <div className="fixed-block" id="block-3">
+          <div className="fixed-block-content" id="block-content">
+            <p className="fixed-block-text">
+              A customizable fit for all-day comfort.
+            </p>
+          </div>
+        </div>
+
+        <div className="fixed-block" id="block-4">
+          <div className="fixed-block-content" id="block-content">
+            <p className="fixed-block-text">{/* Empty */}</p>
           </div>
         </div>
       </div>
