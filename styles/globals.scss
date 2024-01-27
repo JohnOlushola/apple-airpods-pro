@@ -21,12 +21,8 @@ a {
   box-sizing: border-box;
 }
 
-.container {
+.header-container {
   max-width: 980px;
-  // padding-left: 22px;
-  // padding-right: 22px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 canvas.bg-active {
@@ -47,12 +43,11 @@ canvas.bg-active {
   & > * {
     z-index: 100;
   }
+}
 
-  &__headline-text {
-    font-size: 200px;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
-      "Arial", sans-serif !important;
-  }
+.landing {
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif !important;
 }
 
 // Background Canvas

@@ -103,21 +103,16 @@ export default function Home() {
 
   return (
     <>
-      <div className="sm:hidden md:block landing min-h-screen">
+      <div className="landing min-h-screen">
         <canvas ref={canvasRef} className="bg-active z-0"></canvas>
         <div className="h-screen flex flex-col items-center align-middle justify-center hero">
-          <h1 className="font-bold tracking-tight hero__headline-text leading-none">
+          <h1 className="font-bold tracking-tight md:text-9xl lg:text-[200px] leading-none">
             AirPods Pro
           </h1>
-          <div className="inline-flex mt-3">
+          <div className="inline-flex mt-3 gap-2">
             <Link href="/#" passHref={true}>
               <a className="text-2xl font-semibold mr-4 hover:underline">
                 Watch the product film
-              </a>
-            </Link>
-            <Link href="/#" passHref={true}>
-              <a className="text-2xl font-semibold hover:underline">
-                Watch <em>Jump</em>
               </a>
             </Link>
           </div>

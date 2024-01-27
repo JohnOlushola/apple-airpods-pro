@@ -56,7 +56,7 @@ export default function Header() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container">
+      <div className="header-container mx-auto">
         <ul className="h-11 flex justify-between items-center">
           {links.map((link, index) => (
             <li className="list-none" key={index}>
@@ -71,9 +71,11 @@ export default function Header() {
           ))}
         </ul>
       </div>
-      <div className="container">
+      <div className="header-container mx-auto">
         <div className="py-2.5 flex justify-between items-center border-b border-gray-600">
-          <a className="text-xl font-normal text-gray-100 leading-relaxed">AirPods Pro</a>
+          <a className="text-xl font-normal text-gray-100 leading-relaxed">
+            AirPods Pro
+          </a>
           <div className="inline-flex items-center">
             <Link href="/">
               <a className="text-xs text-gray-300 font-light mr-5">Overview</a>
